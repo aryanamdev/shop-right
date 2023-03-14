@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+  font-family: "Raleway";
+  scroll-behavior: smooth;
+}
+input{
+    all: unset;
+}
+li:hover{
+    color: rgb(183, 183, 183)
+}
