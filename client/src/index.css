@@ -12,3 +12,7 @@ input{
 li:hover{
     color: rgb(183, 183, 183)
 }
+
+.grid-item:hover .overlay{
+  
+}

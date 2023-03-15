@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
+import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import { CartContext } from "../context/CartContext";
+
+import TrendingSlider from "../components/TrendingSlider.jsx";
 
 const Home = () => {
   const { search, handleSearch, setCategory } = useContext(CartContext);
 
   return (
     <>
-      <div className="pt-36 flex justify-center mb-12">
+      <Hero />
+      <div className="flex justify-center mb-12 ">
         <input
           className="p-3 lg:w-3/12 text-black rounded-md bg-gray-200"
           onChange={handleSearch}
@@ -27,11 +31,12 @@ const Home = () => {
             window.scroll(0, 0);
           }}
           className="mx-auto p-4 font-medium text-lg uppercase 
-           shadow-sm active:scale-95  rounded-md bg-emerald-200"
+           shadow-sm active:scale-95 text-white rounded-md bg-teal-600"
         >
           Jump To Top
         </button>
       </div>
+      <TrendingSlider />
     </>
   );
 };

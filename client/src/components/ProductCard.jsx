@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext.jsx";
-import SkeletonCard from "./skeletons/SkeletonCard.jsx";
 import { items } from "./AllData.js";
 
 export default function ProductCard() {
@@ -19,7 +18,7 @@ export default function ProductCard() {
           }}
           key={val.id}
           id={val.id}
-          className="flex flex-col w-80 shadow-xl hover:shadow-2xl cursor-pointer rounded-lg"
+          className="flex flex-col w-80 border-gray-300 hover:border-black border-2 cursor-pointer "
         >
           <div className="flex justify-center">
             <img
@@ -29,17 +28,9 @@ export default function ProductCard() {
               alt=""
             />
           </div>
-          <div className="p-8 flex flex-col gap-4">
+          <div className="p-4 flex flex-col gap-3">
             <h1 className="text-xl">{val.description}</h1>
-            <div className="flex justify-between items-center">
-              <p className="text-2xl font-semibold font-mono">$ {val.price}</p>
-              <button
-                onClick={() => addItem(val)}
-                className="p-2 bg-accent text-white font-medium rounded hover:bg-slate-500 active:bg-slate-500 active:scale-95"
-              >
-                Add to Cart
-              </button>
-            </div>
+            <p className="text-2xl font-semibold font-mono">$ {val.price}</p>
             <p className=" h-16 overflow-y-scroll text-gray-600 text-sm">
               {val.specs}
             </p>
