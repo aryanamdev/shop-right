@@ -4,8 +4,7 @@ import { CartContext } from "../context/CartContext.jsx";
 import { items } from "./AllData.js";
 
 export default function ProductCard() {
-  const { addItem, search, category } = useContext(CartContext);
-  const [loading, setLoading] = useState(true);
+  const { addItem, productCategory } = useContext(CartContext);
 
   let navigate = useNavigate();
 
@@ -15,6 +14,7 @@ export default function ProductCard() {
         <div
           onClick={() => {
             navigate(`/products/${val.id}`);
+            window.scroll(0, 0);
           }}
           key={val.id}
           id={val.id}

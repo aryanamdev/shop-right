@@ -6,7 +6,7 @@ const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [search, setSearch] = useState("");
 
-  const [category, setCategory] = useState("");
+  const [productCategory, setCategory] = useState("");
 
   // Adding cart items to localstorage
   useEffect(() => {
@@ -29,8 +29,8 @@ const CartContextProvider = (props) => {
 
     if (!itemInCart) {
       setCartItems((pre) => [...pre, item]);
-    }else {
-      return
+    } else {
+      return;
     }
 
     console.log(itemInCart);
@@ -51,7 +51,7 @@ const CartContextProvider = (props) => {
         removeItem,
         search,
         handleSearch,
-        category,
+        productCategory,
         setCategory,
       }}
     >

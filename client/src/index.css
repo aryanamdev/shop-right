@@ -2,17 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html {
+body,
+html {
   font-family: "Raleway";
   scroll-behavior: smooth;
 }
-input{
-    all: unset;
+input {
+  all: unset;
 }
-li:hover{
-    color: rgb(183, 183, 183)
+li:hover {
+  color: rgb(183, 183, 183);
 }
 
-.grid-item:hover .overlay{
-  
-}

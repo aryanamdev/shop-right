@@ -1,0 +1,6 @@
+#slider{
+    scroll-behavior: smooth;
+}
+#slider::-webkit-scrollbar{
+    display: none;
+}

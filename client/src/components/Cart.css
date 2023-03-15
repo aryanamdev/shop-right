@@ -1,0 +1,13 @@
+.cart-content {
+  transform: translateX(100%);
+  animation: slide 0.3s ease forwards;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
