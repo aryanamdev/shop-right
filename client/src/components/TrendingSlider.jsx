@@ -16,7 +16,10 @@ function TrendingSlider() {
       <div className="flex justify-between mb-6 items-center">
         <h3 className="text-2xl font-medium">Trending Items</h3>
         <div className="flex gap-2">
-          <button onClick={slideLeft} className="p-2 bg-teal-600 text-white">
+          <button
+            onClick={slideLeft}
+            className="p-2 bg-teal-600 text-white hover:bg-teal-800 active:scale-95"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,7 +35,10 @@ function TrendingSlider() {
               />
             </svg>
           </button>
-          <button onClick={slideRight} className="p-2 bg-teal-600 text-white">
+          <button
+            onClick={slideRight}
+            className="p-2 bg-teal-600 text-white  hover:bg-teal-800 active:scale-95"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

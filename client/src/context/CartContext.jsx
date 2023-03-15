@@ -1,12 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
-
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
-  const [search, setSearch] = useState("");
-
-  const [productCategory, setCategory] = useState("");
+  const [cartCount, setCartCount] = useState(0);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
 
   // Adding cart items to localstorage
   useEffect(() => {
@@ -19,40 +17,39 @@ const CartContextProvider = (props) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
+  const handleAddToCart = (product, quantity) => {
+    let items = [...cartItems];
+    let index = items.findIndex((p) => p.id === product.id);
 
-  // adding items to cart
-  const addItem = (item) => {
-    const itemInCart = cartItems.find((cartitem) => cartitem.id === item.id);
-
-    if (!itemInCart) {
-      setCartItems((pre) => [...pre, item]);
+    if (index !== -1) {
+      items[index].attributes.quantity += quantity;
     } else {
-      return;
+      product.attributes.quantity = quantity;
+      items = [...items, product];
     }
-
-    console.log(itemInCart);
+    setCartItems(items);
   };
 
-  // removing item from cart
-  const removeItem = (id) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.filter((item) => item.id !== id)
-    );
+  const handleRemoveFromCart = (id) => {
+    let items = [...cartItems];
+    items = items.filter((p) => p.id !== id);
+    setCartItems(items);
   };
+
+  const handleCartProductQuantity = (type, quantity) => {};
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
-        addItem,
-        removeItem,
-        search,
-        handleSearch,
-        productCategory,
-        setCategory,
+        setCartItems,
+        cartCount,
+        setCartCount,
+        cartSubTotal,
+        setCartSubTotal,
+        // handleAddToCart,
+        handleRemoveFromCart,
+        handleCartProductQuantity,
       }}
     >
       {props.children}

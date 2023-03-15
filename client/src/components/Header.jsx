@@ -2,30 +2,40 @@ import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { Home, Product } from "../pages/index.js";
 import Cart from "./Cart.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [cartDisplay, setCartDisplay] = useState(false);
 
   return (
     <>
       <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-white border  h-20 shadow-lg fixed mb-20">
         <ul className="flex gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
-          <li className=" text-lg lg:text-3xl  font-bold">ShopRight 🛍️</li>
+          <li
+            onClick={() => {
+              navigate(`/`);
+              window.scroll(0, 0);
+            }}
+            className=" text-lg lg:text-3xl hover:text-black cursor-pointer font-bold"
+          >
+            ShopRight 🛍️
+          </li>
           <div
             onClick={() => window.scroll(0, 0)}
             className="flex items-center gap-5 lg:gap-8"
           >
-            <li className="text-gray-800">
+            <li className="text-gray-800 hover:text-gray-400 active:scale-95">
               <Link to="/">Home</Link>
             </li>
-            <li className=" rounded-sm btn bg-teal-600 p-1.5 text-white">
+            <li className=" rounded-sm btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-1.5 text-white">
               <Link to="/signin">Sign in</Link>
             </li>
             <li
               onClick={() => {
                 setCartDisplay(true);
               }}
-              className="p-3 relative rounded-full cursor-pointer"
+              className="p-3 relative rounded-full cursor-pointer hover:text-gray-500 active:scale-95"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
