@@ -60,24 +60,24 @@ const Product = () => {
   );
 
   return (
-    <div className="lg:pt-36 pt-20">
+    <div className="pt-24 lg:pt-36">
       <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 mb-12">
-        <div className="image-holder flex-col lg:flex-row h-96">
+        <div className="image-holder gap-8 flex flex-col lg:flex-row h-96">
           <img
             className="object-cover w-full h-full"
             src={newItem.img}
             alt=""
           />
-          <div className="mb-10 flex lg:flex-col justify-center other-imgs gap-10">
-            <div className="w-36">
-              <img src={newItem.otherimgs[0]} alt="image" />
+          <div className="flex flex-row lg:flex-col justify-center other-imgs gap-10">
+            <div className="w-36 h-44">
+              <img className="w-full h-full object-cover aspect-square" src={newItem.otherimgs[0]} alt="image" />
             </div>
-            <div className="w-36">
-              <img src={newItem.otherimgs[1]} alt="image" />
+            <div className="w-36 h-44">
+              <img className="w-full h-full object-cover aspect-square" src={newItem.otherimgs[1]} alt="image" />
             </div>
           </div>
         </div>
-        <div className="content mt-28 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start">
+        <div className="content mt-40 lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start">
           <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
           <p className="text-xl font-mono pb-8">$ {newItem.price}</p>
           <p className="text-gray-700 w-full px-10 lg:px-0 pb-7">
