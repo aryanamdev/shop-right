@@ -16,7 +16,7 @@ function TrendingSlider() {
   return (
     <div className="px-8 mt-2 mb-12">
       <div className="flex justify-between mb-6 items-center">
-        <h3 className="text-2xl font-medium">Trending Items</h3>
+        <h3 className="text-2xl text-teal-700 font-medium">Trending Items</h3>
         <div className="flex gap-2">
           <button
             onClick={slideLeft}
@@ -59,7 +59,7 @@ function TrendingSlider() {
         </div>
       </div>
       <div id="slider" className=" flex overflow-x-scroll">
-        <div className="flex overflow-x-scoll gap-2">
+        <div className="flex overflow-x-scoll gap-4">
           <TrendingItem />
         </div>
       </div>
