@@ -1,11 +1,19 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { items } from "./AllData";
+import { useNavigate } from "react-router-dom";
 
 function CartItem() {
-  const { cartItems, handleRemoveFromCart, setCartItems } =
-    useContext(CartContext);
+  const navigate = useNavigate();
 
+  const {
+    cartItems,
+    handleRemoveFromCart,
+    setCartItems,
+    setCartDisplay,
+    setCartSubTotal,
+  } = useContext(CartContext);
+
+  // increased quantity
   const increment = (item) => {
     const updatedItems = [...cartItems];
     const index = updatedItems.findIndex((i) => i.id === item.id);
@@ -13,6 +21,7 @@ function CartItem() {
     setCartItems(updatedItems);
   };
 
+  //decreased quantity
   const decrement = (item) => {
     const updatedItems = [...cartItems];
     const index = updatedItems.findIndex((i) => i.id === item.id);
@@ -22,17 +31,35 @@ function CartItem() {
     }
   };
 
+  const cartSubTotalValue = cartItems.reduce((subtotal, current) => {
+    return (subtotal += current.price * current.quantity);
+  }, 0);
+  console.log(cartSubTotalValue);
+  setCartSubTotal(cartSubTotalValue);
+
   return (
     <>
       {cartItems.map((item, index) => {
         return (
           <div key={index} className="cart-products flex-grow-[0]">
-            <div className="cart-product hover:bg-gray-100 px-5 py-4 flex gap-2">
-              <div className="img-wrapper bg-gray-200 w-16 h-16">
+            <div className="cursor-pointer cart-product hover:bg-gray-100 px-5 py-4 flex gap-2">
+              <div
+                onClick={() => {
+                  navigate(`products/${item.id}`);
+                  setCartDisplay(false);
+                }}
+                className="img-wrapper bg-gray-200 w-16 h-16"
+              >
                 <img className="w-full h-full" src={item.img} alt="" />
               </div>
               <div className="prod-detail overflow-hidden w-full relative">
-                <span className="product-name text-ellipsis whitespace-nowrap overflow-hidden text-base leading-4 mb-2 font-semibold block pr-6">
+                <span
+                  onClick={() => {
+                    navigate(`products/${item.id}`);
+                    setCartDisplay(false);
+                  }}
+                  className="product-name text-ellipsis whitespace-nowrap overflow-hidden text-base leading-4 mb-2 font-semibold block pr-6"
+                >
                   {item.description}
                 </span>
                 <span
@@ -72,9 +99,18 @@ function CartItem() {
                   </button>
                 </div>
                 <div className="text flex items-center gap-2 text-sm font-semibold">
-                  <span>{item.quantity}</span>
-                  <span>x</span>
-                  <span className="text-teal-800">{item.price}</span>
+                  <span className="text-teal-800 text-base">
+                    <span className="total text-black pr-2 text-sm">
+                      Quantity:
+                    </span>
+                    {item.quantity}
+                  </span>
+                  <span className="text-teal-800 text-base">
+                    <span className="total text-black pr-2 text-sm">
+                      Total:
+                    </span>
+                    $ {item.price * item.quantity}
+                  </span>
                 </div>
               </div>
             </div>

@@ -1,33 +1,11 @@
-import React from "react";
-import Main1 from "../img/header/home-img-1.jpg";
-import Main2 from "../img/header/home-img-2.jpg";
-import Main3 from "../img/header/home-img-3.jpg";
-import Main4 from "../img/header/home-img-4.jpg";
-
-const categories = [
-  {
-    image: Main1,
-    category: "Furniture",
-  },
-  {
-    image: Main2,
-    category: "Skin Care",
-  },
-  {
-    image: Main3,
-    category: "Kitchen",
-  },
-  {
-    image: Main4,
-    category: "Electronics",
-  },
-];
+import React, { useEffect, useState } from "react";
+import { items } from "./AllData";
 
 export default function Hero() {
   return (
     <div className="pt-36 w-full">
       <div className="px-8 flex flex-wrap gap-2 lg:gap-6 w-full justify-center">
-        {categories.map((val, index) => (
+        {/* {categories.map((val, index) => (
           <div
             key={index}
             className="grid-item h-40 lg:h-96 w-96 lg:w-80 mb-10 relative z-[-10000]"
@@ -43,7 +21,7 @@ export default function Hero() {
               {val.category}
             </p>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

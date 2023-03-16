@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../context/CartContext.jsx";
 import { items } from "./AllData.js";
 
 export default function ProductCard() {
-  const { addItem, productCategory } = useContext(CartContext);
-
   let navigate = useNavigate();
 
   return (
@@ -13,6 +10,7 @@ export default function ProductCard() {
       {items.map((val) => (
         <div
           onClick={() => {
+            // navigation to product page on click using the ID
             navigate(`/products/${val.id}`);
             window.scroll(0, 0);
           }}

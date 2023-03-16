@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
 
 export default function Cart({ setCartDisplay }) {
-  const navigate = useNavigate();
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, cartSubTotal } = useContext(CartContext);
+
   return (
     <div className="cart-panel fixed top-0 l-0 w-[100%] h-full flex justify-end">
       <div
         onClick={() => {
+          // setting cart display by clicking outside
           setCartDisplay(false);
         }}
         className="opac-layer bg-[rgba(0,0,0,.5)] absolute top-0 w-full h-full"
@@ -20,6 +20,7 @@ export default function Cart({ setCartDisplay }) {
           <span
             className="cursor-pointer items-center flex bg-teal-600 rounded-full text-white"
             onClick={() => {
+              // removing cart
               setCartDisplay(false);
             }}
           >
@@ -72,19 +73,23 @@ export default function Cart({ setCartDisplay }) {
           <div className="flex overflow-y-scroll flex-col h-full">
             <CartItem />
           </div>
-          <div className="cart-footer border border-t-gray-400">
-            <div className="subtotal flex justify-between px-5 py-4 border-b-gray-400">
-              <span className="text mb-0 text-xl font-semibold uppercase">
-                Subtotal:
-              </span>
-              <span className="text total font-medium text-teal-800"></span>
+          {cartItems.length !== 0 && (
+            <div className="cart-footer border border-t-gray-400">
+              <div className="subtotal flex justify-between px-5 py-4 border-b-gray-400">
+                <span className="text mb-0 text-xl font-semibold uppercase">
+                  Cart Total:
+                </span>
+                <span className="text total font-semibold font-mono text-xl text-teal-800">
+                  $ {cartSubTotal}
+                </span>
+              </div>
+              <div className="button px-5 py-4">
+                <button className="rounded-sm w-full mx-auto btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-2 text-white">
+                  Checkout
+                </button>
+              </div>
             </div>
-            <div className="button px-5 py-4">
-              <button className="rounded-sm w-full mx-auto btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-2 text-white">
-                Checkout
-              </button>
-            </div>
-          </div>
+          )}
         </>
       </div>
     </div>

@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 
 const Product = () => {
-  // const { handleAddToCart } = useContext(CartContext);
   const {
     cartItems,
     setCartItems,
@@ -18,17 +17,11 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
 
-  const increment = () => {
-    setQuantity(quantity + 1);
-  };
-  const decrement = () => {
-    quantity > 1 && setQuantity(quantity - 1);
-  };
-
   const item = items.filter((val) => {
     return val.id === parseInt(id);
   });
 
+  // new Item with quantity
   const newItem = {
     id: item[0].id,
     description: item[0].description,
@@ -44,14 +37,19 @@ const Product = () => {
       (item) => item.id === parseInt(newItem.id)
     );
     if (existingItem) {
-      existingItem.quantity = quantity;
-      setCartItems([...cartItems]);
+      return;
     } else {
       setCartItems([...cartItems, newItem]);
     }
-    setCartCount((prevCount) => prevCount + quantity);
     setQuantity(1);
-    setCartDisplay(true)
+    setCartDisplay(true);
+  };
+
+  const increment = () => {
+    !existingItem && setQuantity(quantity + 1);
+  };
+  const decrement = () => {
+    !existingItem && quantity > 1 && setQuantity(quantity - 1);
   };
 
   const existingItem = cartItems.find(
@@ -75,8 +73,9 @@ const Product = () => {
             {newItem.specs}
           </p>
           <p className="pb-5 text-lg">
-            <span className="font-medium text-teal-600">Category :</span>
-            {newItem.category}
+            <span className="font-medium pr-2 text-teal-600">Category:</span>
+            {newItem.category.charAt(0).toUpperCase() +
+              newItem.category.slice(1, newItem.category.length)}
           </p>
           <div className="quantity-buttons flex justify-center gap-1 lg:justify-start pb-6">
             <span

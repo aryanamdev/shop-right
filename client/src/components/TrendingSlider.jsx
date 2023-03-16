@@ -2,14 +2,16 @@ import "./TrendingSlider.css";
 import TrendingItem from "./TrendingItem";
 
 function TrendingSlider() {
+  // function for sliding left
   const slideLeft = () => {
     let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 235;
+    slider.scrollLeft = slider.scrollLeft - 500;
   };
 
+  // function for sliding right
   const slideRight = () => {
     let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 235;
+    slider.scrollLeft = slider.scrollLeft + 500;
   };
   return (
     <div className="px-8 mt-2 mb-12">

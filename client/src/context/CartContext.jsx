@@ -2,9 +2,13 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
+  // cart items
   const [cartItems, setCartItems] = useState([]);
+  // cart count
   const [cartCount, setCartCount] = useState(0);
+  // cart sub total
   const [cartSubTotal, setCartSubTotal] = useState(0);
+  // onclick display of cart
   const [cartDisplay, setCartDisplay] = useState(false);
 
   // Adding cart items to localstorage
@@ -18,6 +22,7 @@ const CartContextProvider = (props) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Removing from cart
   const handleRemoveFromCart = (id) => {
     let items = [...cartItems];
     items = items.filter((p) => p.id !== id);

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
+
+// components
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
-import { CartContext } from "../context/CartContext";
 import Footer from "../components/Footer";
-
 import TrendingSlider from "../components/TrendingSlider.jsx";
 
 const Home = () => {
@@ -16,17 +16,6 @@ const Home = () => {
         </div>
       </div>
       <TrendingSlider />
-      <div className="p-12 flex justify-center">
-        <button
-          onClick={() => {
-            window.scroll(0, 0);
-          }}
-          className="mx-auto p-4 font-medium text-lg uppercase 
-           shadow-sm active:scale-95 text-white rounded-md bg-teal-600"
-        >
-          Jump To Top
-        </button>
-      </div>
       <Footer />
     </>
   );

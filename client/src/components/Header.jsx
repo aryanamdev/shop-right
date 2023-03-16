@@ -11,7 +11,7 @@ const Header = () => {
   const { cartItems, setCartDisplay, cartDisplay } = useContext(CartContext);
   return (
     <>
-      <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-white border  h-20 shadow-lg fixed mb-20">
+      <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-gray-200 border h-20 border-b-gray-300 fixed mb-20">
         <ul className="flex gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
           <li
             onClick={() => {
@@ -34,6 +34,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => {
+                // displaying cart on click
                 setCartDisplay(true);
               }}
               className="p-3 relative rounded-full cursor-pointer hover:text-gray-500 active:scale-95"
@@ -59,7 +60,10 @@ const Header = () => {
           </div>
         </ul>
       </div>
-      {cartDisplay && <Cart setCartDisplay={setCartDisplay} />}
+      {
+        //displaying cart if the state if true
+        cartDisplay && <Cart setCartDisplay={setCartDisplay} />
+      }
 
       <Routes>
         <Route path="/" element={<Home />} />
