@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
-import { Home, Product, SignIn } from "../pages/index.js";
+import { Home, Product, SignIn, Dashboard } from "../pages/index.js";
 import Cart from "./Cart.jsx";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext.jsx";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase.js";
+import { auth } from "../utils/firebase.js";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -39,18 +39,15 @@ const Header = () => {
                 <Link to="/auth/signin">Sign in</Link>
               </li>
             ) : (
-              <div
-                onClick={() => {
-                  navigate(`/dashboard`);
-                }}
-                className="h-10 cursor-pointer"
-              >
-                <img
-                  className="h-full rounded-full"
-                  src={user.photoURL}
-                  referrerPolicy="no-referrer"
-                  alt="avatar"
-                />
+              <div className="h-10 cursor-pointer">
+                <Link to="/dashboard">
+                  <img
+                    className="h-full rounded-full"
+                    src={user.photoURL}
+                    referrerPolicy="no-referrer"
+                    alt="avatar"
+                  />
+                </Link>
               </div>
             )}
 
@@ -91,6 +88,7 @@ const Header = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
