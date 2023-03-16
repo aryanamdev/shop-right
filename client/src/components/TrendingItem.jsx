@@ -20,7 +20,12 @@ function TrendingItem() {
             className="flex flex-col h-96 w-72 border-gray-300 hover:border-black border-2 cursor-pointer"
           >
             <div className="item-header">
-              <img src={item.img} className="object-cover" alt="product" />
+              <img
+                loading="lazy"
+                src={item.img}
+                className="object-cover"
+                alt="product"
+              />
             </div>
             <div className="item-description p-2">
               <p className="text-xl">{item.description}</p>

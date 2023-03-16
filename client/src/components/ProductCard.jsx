@@ -23,7 +23,7 @@ export default function ProductCard() {
               loading="lazy"
               src={val.img}
               className="object-cover h-60"
-              alt=""
+              alt="product card image"
             />
           </div>
           <div className="p-4 flex flex-col gap-3">

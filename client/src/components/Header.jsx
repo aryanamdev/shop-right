@@ -42,6 +42,7 @@ const Header = () => {
               <div className="h-10 cursor-pointer">
                 <Link to="/dashboard">
                   <img
+                    loading="lazy"
                     className="h-full rounded-full"
                     src={user.photoURL}
                     referrerPolicy="no-referrer"

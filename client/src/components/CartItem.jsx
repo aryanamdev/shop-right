@@ -50,7 +50,12 @@ function CartItem() {
                 }}
                 className="img-wrapper bg-gray-200 w-16 h-16"
               >
-                <img className="w-full h-full" src={item.img} alt="" />
+                <img
+                  loading="lazy"
+                  className="w-full h-full"
+                  src={item.img}
+                  alt="cart item image"
+                />
               </div>
               <div className="prod-detail overflow-hidden w-full relative">
                 <span

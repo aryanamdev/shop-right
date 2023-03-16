@@ -62,18 +62,29 @@ const Product = () => {
   return (
     <div className="pt-24 lg:pt-36">
       <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 mb-12">
-        <div className="image-holder gap-8 flex flex-col lg:flex-row h-96">
+        <div className="product other image-holder gap-8 flex flex-col lg:flex-row h-96">
           <img
+            loading="lazy"
             className="object-cover w-full h-full"
             src={newItem.img}
-            alt=""
+            alt="product image"
           />
           <div className="flex flex-row lg:flex-col justify-center other-imgs gap-10">
             <div className="w-36 h-44">
-              <img className="w-full h-full object-cover aspect-square" src={newItem.otherimgs[0]} alt="image" />
+              <img
+                loading="lazy"
+                className="w-full h-full object-cover aspect-square"
+                src={newItem.otherimgs[0]}
+                alt="product other image"
+              />
             </div>
             <div className="w-36 h-44">
-              <img className="w-full h-full object-cover aspect-square" src={newItem.otherimgs[1]} alt="image" />
+              <img
+                loading="lazy"
+                className="w-full h-full object-cover aspect-square"
+                src={newItem.otherimgs[1]}
+                alt="product other image"
+              />
             </div>
           </div>
         </div>
