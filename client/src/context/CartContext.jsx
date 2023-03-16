@@ -5,6 +5,7 @@ const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [cartDisplay, setCartDisplay] = useState(false);
 
   // Adding cart items to localstorage
   useEffect(() => {
@@ -17,26 +18,11 @@ const CartContextProvider = (props) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const handleAddToCart = (product, quantity) => {
-    let items = [...cartItems];
-    let index = items.findIndex((p) => p.id === product.id);
-
-    if (index !== -1) {
-      items[index].attributes.quantity += quantity;
-    } else {
-      product.attributes.quantity = quantity;
-      items = [...items, product];
-    }
-    setCartItems(items);
-  };
-
   const handleRemoveFromCart = (id) => {
     let items = [...cartItems];
     items = items.filter((p) => p.id !== id);
     setCartItems(items);
   };
-
-  const handleCartProductQuantity = (type, quantity) => {};
 
   return (
     <CartContext.Provider
@@ -47,9 +33,9 @@ const CartContextProvider = (props) => {
         setCartCount,
         cartSubTotal,
         setCartSubTotal,
-        // handleAddToCart,
+        cartDisplay,
+        setCartDisplay,
         handleRemoveFromCart,
-        handleCartProductQuantity,
       }}
     >
       {props.children}

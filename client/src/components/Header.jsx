@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { Home, Product } from "../pages/index.js";
 import Cart from "./Cart.jsx";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [cartDisplay, setCartDisplay] = useState(false);
 
+  const { cartItems, setCartDisplay, cartDisplay } = useContext(CartContext);
   return (
     <>
       <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-white border  h-20 shadow-lg fixed mb-20">
@@ -52,7 +53,7 @@ const Header = () => {
                 />
               </svg>
               <span className="absolute text-sm text-white top-0 bg-red-500 p-1 px-2.5 rounded-full right-0">
-                0
+                {cartItems.length}
               </span>
             </li>
           </div>

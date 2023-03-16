@@ -7,6 +7,14 @@ import { CartContext } from "../context/CartContext";
 
 const Product = () => {
   // const { handleAddToCart } = useContext(CartContext);
+  const {
+    cartItems,
+    setCartItems,
+    setCartCount,
+    handleRemoveFromCart,
+    setCartDisplay,
+  } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
 
@@ -20,25 +28,55 @@ const Product = () => {
   const item = items.filter((val) => {
     return val.id === parseInt(id);
   });
+
+  const newItem = {
+    id: item[0].id,
+    description: item[0].description,
+    img: item[0].img,
+    price: item[0].price,
+    quantity: quantity,
+    category: item[0].category,
+    specs: item[0].specs,
+  };
+
+  const handleAddToCart = () => {
+    const existingItem = cartItems.find(
+      (item) => item.id === parseInt(newItem.id)
+    );
+    if (existingItem) {
+      existingItem.quantity = quantity;
+      setCartItems([...cartItems]);
+    } else {
+      setCartItems([...cartItems, newItem]);
+    }
+    setCartCount((prevCount) => prevCount + quantity);
+    setQuantity(1);
+    setCartDisplay(true)
+  };
+
+  const existingItem = cartItems.find(
+    (item) => item.id === parseInt(newItem.id)
+  );
+
   return (
     <div className="pt-36">
       <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 mb-12">
         <div className="image-holder h-96">
           <img
             className="object-cover w-full h-full"
-            src={item[0].img}
+            src={newItem.img}
             alt=""
           />
         </div>
         <div className="content lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start">
-          <h2 className="text-2xl font-semibold pb-4">{item[0].description}</h2>
-          <p className="text-xl font-mono pb-8">$ {item[0].price}</p>
+          <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
+          <p className="text-xl font-mono pb-8">$ {newItem.price}</p>
           <p className="text-gray-700 w-full px-10 lg:px-0 pb-7">
-            {item[0].specs}
+            {newItem.specs}
           </p>
           <p className="pb-5 text-lg">
-            <span className="font-medium text-teal-600">Category :</span>{" "}
-            {item[0].category}
+            <span className="font-medium text-teal-600">Category :</span>
+            {newItem.category}
           </p>
           <div className="quantity-buttons flex justify-center gap-1 lg:justify-start pb-6">
             <span
@@ -57,9 +95,21 @@ const Product = () => {
               +
             </span>
           </div>
-          <button className="active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-teal-600 border-[1.8px] border-teal-600 hover:border-teal-800 hover:text-teal-800 w-fit font-semibold">
-            Add To Cart 🛒
-          </button>
+          {!existingItem ? (
+            <button
+              onClick={handleAddToCart}
+              className="active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-teal-600 border-[1.8px] border-teal-600 hover:border-teal-800 hover:text-teal-800 w-fit font-semibold"
+            >
+              Add To Cart 🛒
+            </button>
+          ) : (
+            <button
+              onClick={() => handleRemoveFromCart(newItem.id)}
+              className="active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-red-600 border-[1.8px] border-red-600 hover:border-red-800 hover:text-red-800 w-fit font-semibold"
+            >
+              Remove from cart 🛒
+            </button>
+          )}
         </div>
       </div>
       <TrendingSlider />
