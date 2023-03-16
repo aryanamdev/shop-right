@@ -1,12 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
-import { Home, Product } from "../pages/index.js";
+import { Home, Product, SignIn } from "../pages/index.js";
 import Cart from "./Cart.jsx";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext.jsx";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase.js";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  // getting the user from the backend
+  const [user, loading] = useAuthState(auth);
 
   const { cartItems, setCartDisplay, cartDisplay } = useContext(CartContext);
   return (
@@ -29,9 +34,26 @@ const Header = () => {
             <li className="text-gray-800 hover:text-gray-400 active:scale-95">
               <Link to="/">Home</Link>
             </li>
-            <li className=" rounded-sm btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-1.5 text-white">
-              <Link to="/signin">Sign in</Link>
-            </li>
+            {!user ? (
+              <li className=" rounded-sm btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-1.5 text-white">
+                <Link to="/auth/signin">Sign in</Link>
+              </li>
+            ) : (
+              <div
+                onClick={() => {
+                  navigate(`/dashboard`);
+                }}
+                className="h-10 cursor-pointer"
+              >
+                <img
+                  className="h-full rounded-full"
+                  src={user.photoURL}
+                  referrerPolicy="no-referrer"
+                  alt="avatar"
+                />
+              </div>
+            )}
+
             <li
               onClick={() => {
                 // displaying cart on click
@@ -68,6 +90,7 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products/:id" element={<Product />} />
+        <Route path="/auth/signin" element={<SignIn />} />
       </Routes>
     </>
   );
