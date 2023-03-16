@@ -26,11 +26,13 @@ function SignIn() {
     <div className="pt-52 px-10 flex justify-center">
       <div className="holder shadow-xl p-10 lg:p-20 text-gray-700 rounded-lg flex flex-col items-center">
         <div className="mb-10">
-          <h2 className="text-2xl lg:text-5xl font-semibold">Join Today 🚀</h2>
+          <h2 className="text-2xl lg:text-5xl font-semibold">
+            Shop Today 🚀
+          </h2>
         </div>
         <div
           onClick={googleLogin}
-          className="flex items-center jc-center gap-4 p-2.5 px-4 text-white rounded-md bg-gray-700 shadow-md active:scale-95 w-full cursor-pointer"
+          className="flex items-center jc-center gap-4 p-2.5 mt-7 px-4 text-white rounded-md bg-gray-700 shadow-md active:scale-95 w-full cursor-pointer"
         >
           <FcGoogle className="lg:text-2xl" />
           <button className="lg:text-xl">Sign in with google</button>
