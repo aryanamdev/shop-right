@@ -6,13 +6,8 @@ import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 
 const Product = () => {
-  const {
-    cartItems,
-    setCartItems,
-    setCartCount,
-    handleRemoveFromCart,
-    setCartDisplay,
-  } = useContext(CartContext);
+  const { cartItems, setCartItems, handleRemoveFromCart, setCartDisplay } =
+    useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
@@ -60,8 +55,8 @@ const Product = () => {
   );
 
   return (
-    <div className="pt-24 lg:pt-36">
-      <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 mb-12">
+    <div className="">
+      <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 m-12">
         <div className="product other image-holder gap-8 flex flex-col lg:flex-row h-96">
           <img
             loading="lazy"
@@ -88,9 +83,9 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className="content mt-40 lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start">
+        <div className="content mt-40 lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start ">
           <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
-          <div className="price flex gap-3 items-center">
+          <div className="price flex gap-3 items-center justify-center mb-5 lg:justify-start">
             <p className="text-2xl font-semibold font-mono">
               $ {newItem.price}
             </p>
@@ -101,7 +96,7 @@ const Product = () => {
               {((newItem.price / (newItem.price + 349)) * 100).toFixed()}% off
             </p>
           </div>
-          <p className="text-gray-700 w-full px-10 lg:px-0 pb-7">
+          <p className="text-gray-700 w-full text-sm lg:px-0 pb-7">
             {newItem.specs}
           </p>
           <p className="pb-5 text-lg">

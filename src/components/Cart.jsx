@@ -6,7 +6,7 @@ export default function Cart({ setCartDisplay }) {
   const { cartItems, cartSubTotal } = useContext(CartContext);
 
   return (
-    <div className="cart-panel fixed top-0 l-0 w-[100%] h-full flex justify-end">
+    <div className="cart-panel fixed top-0 l-0 w-[100%] z-20 h-full flex justify-end">
       <div
         onClick={() => {
           // setting cart display by clicking outside
@@ -14,7 +14,7 @@ export default function Cart({ setCartDisplay }) {
         }}
         className="opac-layer bg-[rgba(0,0,0,.5)] absolute top-0 w-full h-full"
       ></div>
-      <div className="cart-content w-full h-full lg:w-[340px] bg-white relative z-10 flex flex-col transition-all">
+      <div className="cart-content w-full h-full lg:w-[340px] bg-white relative flex flex-col transition-all">
         <div className="cart-header flex items-center justify-between p-4 gap-3 border border-b-gray-400 text-lg uppercase">
           <h3 className="cursor-pointer font-semibold">Shopping Cart</h3>
           <span

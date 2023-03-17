@@ -5,9 +5,9 @@ export default function SearchBar() {
   const { search, setSearch } = useContext(CartContext);
 
   return (
-    <div className="pt-36 mb-8 flex justify-center">
+    <div className="mb-8 flex justify-center">
       <input
-        className="bg-gray-200 p-3 lg:w-1/4 
+        className="input input-bordered input-accent bg-gray-200 lg:w-1/4 
         rounded-md"
         onChange={(e) => {
           setSearch(e.target.value);

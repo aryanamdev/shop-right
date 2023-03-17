@@ -45,7 +45,7 @@ function Dashboard() {
               auth.signOut();
               navigate(`/auth/signin`);
             }}
-            className="cursor-pointer flex items-center gap-2 text-lg font-bold text-red-600 uppercase text-center pt-36"
+            className="cursor-pointer flex items-center gap-2 text-lg font-bold text-red-600 uppercase text-center "
           >
             sign out <BiLogOutCircle />
           </button>

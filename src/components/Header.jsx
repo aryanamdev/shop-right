@@ -16,16 +16,16 @@ const Header = () => {
   const { cartItems, setCartDisplay, cartDisplay } = useContext(CartContext);
   return (
     <>
-      <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-gray-200 border h-20 border-b-gray-300 fixed mb-20">
-        <ul className="flex font-bold gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
+      <div className="z-10 navbar px-6 lg:px-8 flex w-full justify-center bg-gray-100 border h-20 border-b-gray-300 sticky top-0">
+        <ul className=" flex font-bold gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
           <li
             onClick={() => {
               navigate(`/`);
               window.scroll(0, 0);
             }}
-            className=" text-lg lg:text-3xl hover:text-black cursor-pointer font-bold"
+            className=" text-lg lg:text-2xl hover:text-black cursor-pointer font-bold"
           >
-            ShopRight 🛍️
+            Shop Right 🛍️
           </li>
           <div
             onClick={() => window.scroll(0, 0)}
@@ -40,7 +40,10 @@ const Header = () => {
               </li>
             ) : (
               <div className="h-10 cursor-pointer">
-                <Link className="hover:opacity-70 h-full rounded-full" to="/dashboard">
+                <Link
+                  className="hover:opacity-70 h-full rounded-full"
+                  to="/dashboard"
+                >
                   <img
                     loading="lazy"
                     className="hover:opacity-10:40 h-full rounded-full"

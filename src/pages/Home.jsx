@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import TrendingSlider from "../components/TrendingSlider.jsx";
+
 import { CartContext } from "../context/CartContext";
 
 import { items } from "../components/AllData";
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <Hero />
       <SearchBar />
       <div className="flex justify-center">
         <div className="px-8 flex flex-wrap  justify-center gap-14 mb-12">
