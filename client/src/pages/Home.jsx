@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // components
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import TrendingSlider from "../components/TrendingSlider.jsx";
+import { CartContext } from "../context/CartContext";
+
+import { items } from "../components/AllData";
 
 const Home = () => {
+  const { search } = useContext(CartContext);
+  // filtered items
+  const filteredItems = items.filter((item) => {
+    return item.description.toLowerCase().includes(search);
+  });
+
   return (
     <>
-      <Hero />
+      <SearchBar />
       <div className="flex justify-center">
-        <div className="px-8 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 place-content-center gap-14 mb-12">
-          <ProductCard />
+        <div className="px-8 flex flex-wrap  justify-center gap-14 mb-12">
+          <ProductCard filteredItems={filteredItems} />
         </div>
       </div>
       <TrendingSlider />

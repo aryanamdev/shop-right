@@ -17,8 +17,8 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
 
-  const item = items.filter((val) => {
-    return val.id === parseInt(id);
+  const item = items.filter((newItem) => {
+    return newItem.id === parseInt(id);
   });
 
   // new Item with quantity
@@ -90,7 +90,17 @@ const Product = () => {
         </div>
         <div className="content mt-40 lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start">
           <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
-          <p className="text-xl font-mono pb-8">$ {newItem.price}</p>
+          <div className="price flex gap-3 items-center">
+            <p className="text-2xl font-semibold font-mono">
+              $ {newItem.price}
+            </p>
+            <p className="text-base font-semibold font-mono text-red-600 line-through">
+              ${newItem.price + 349}
+            </p>
+            <p className="text-base tracking-tight font-semibold text-green-600">
+              {((newItem.price / (newItem.price + 349)) * 100).toFixed()}% off
+            </p>
+          </div>
           <p className="text-gray-700 w-full px-10 lg:px-0 pb-7">
             {newItem.specs}
           </p>
@@ -106,7 +116,7 @@ const Product = () => {
             >
               -
             </span>
-            <span className="button val p-2 px-6 bg-teal-600 text-white">
+            <span className="button newItem p-2 px-6 bg-teal-600 text-white">
               {quantity}
             </span>
             <span

@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <>
       <div className="z-100 px-6 lg:px-8 flex w-full justify-center bg-gray-200 border h-20 border-b-gray-300 fixed mb-20">
-        <ul className="flex gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
+        <ul className="flex font-bold gap-6 text-sm lg:gap-10 w-full items-center justify-between lg:text-xl h-20">
           <li
             onClick={() => {
               navigate(`/`);
@@ -40,10 +40,10 @@ const Header = () => {
               </li>
             ) : (
               <div className="h-10 cursor-pointer">
-                <Link to="/dashboard">
+                <Link className="hover:opacity-70 h-full rounded-full" to="/dashboard">
                   <img
                     loading="lazy"
-                    className="h-full rounded-full"
+                    className="hover:opacity-10:40 h-full rounded-full"
                     src={user.photoURL}
                     referrerPolicy="no-referrer"
                     alt="avatar"

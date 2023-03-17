@@ -10,6 +10,8 @@ const CartContextProvider = (props) => {
   const [cartSubTotal, setCartSubTotal] = useState(0);
   // onclick display of cart
   const [cartDisplay, setCartDisplay] = useState(false);
+  // search
+  const [search, setSearch] = useState("");
 
   // Adding cart items to localstorage
   useEffect(() => {
@@ -36,6 +38,8 @@ const CartContextProvider = (props) => {
         setCartItems,
         cartCount,
         setCartCount,
+        search,
+        setSearch,
         cartSubTotal,
         setCartSubTotal,
         cartDisplay,
