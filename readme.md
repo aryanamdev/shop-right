@@ -39,7 +39,7 @@ https://youtu.be/GU6ZO3rEvdU
 
 1. Clone the project 
 ````
-git clone https://github.com/aryanamdev/screen-picks
+git clone https://github.com/aryanamdev/shop-right
 ````
 2. Install Dependencies
 ````
