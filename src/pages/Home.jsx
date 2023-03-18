@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
 // components
-import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import TrendingSlider from "../components/TrendingSlider.jsx";
+import Hero from "../components/Hero";
 
 import { CartContext } from "../context/CartContext";
 
