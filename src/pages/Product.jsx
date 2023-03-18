@@ -56,15 +56,26 @@ const Product = () => {
 
   return (
     <div className="">
-      <div className="flex flex-col lg:flex-row justify-center px-8 gap-10 mb-12">
-        <div className="product other image-holder gap-8 flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row justify-center lg:justify-around lg:pt-20 gap-10 lg:gap-24 mb-12 px-20">
+        <div className="product lg:h-96 lg:w-1/2 other image-holder flex flex-col lg:flex-row">
           <img
             loading="lazy"
-            className="object-cover w-full h-full"
+            className="
+            object-cover 
+            w-full 
+            h-full"
             src={newItem.img}
             alt="product image"
           />
-          <div className="flex flex-row lg:flex-col justify-center other-imgs gap-10">
+          <div
+            className="
+          flex 
+          flex-row 
+          lg:flex-col 
+          justify-center 
+          other-imgs 
+          gap-10"
+          >
             <div className="w-36 h-44">
               <img
                 loading="lazy"
@@ -86,8 +97,8 @@ const Product = () => {
         <div className="content lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start ">
           <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
           <div className="price flex gap-3 items-center justify-center mb-5 lg:justify-start">
-            <p className="text-2xl font-semibold font-mono">
-              $ {newItem.price}
+            <p className="text-3xl text-gray-800 font-semibold font-mono">
+              ${newItem.price}
             </p>
             <p className="text-base font-semibold font-mono text-red-600 line-through">
               ${newItem.price + 349}
