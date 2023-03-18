@@ -12,9 +12,9 @@ function Dashboard() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="pt-28 px-10 flex justify-center">
-        <div className="holder shadow-xl p-10 lg:p-20 lg:px-32 text-gray-700 rounded-lg flex flex-col items-center">
-          <div className="">
+      <div className="pt-8 px-10 flex justify-center">
+        <div className="holder shadow-xl p-10  lg:p-20 lg:px-32 text-gray-700 rounded-lg flex flex-col items-center">
+          <div className="mb-20">
             <h2 className="text-xl flex gap-3 items-center lg:text-3xl font-semibold text-center pl-7 text-teal-700">
               Dashboard <RxDashboard />
             </h2>
