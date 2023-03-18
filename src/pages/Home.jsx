@@ -15,7 +15,7 @@ const Home = () => {
   const { search } = useContext(CartContext);
   // filtered items
   const filteredItems = items.filter((item) => {
-    return item.description.toLowerCase().includes(search);
+    return item.description.toLowerCase().includes(search.toLowerCase());
   });
 
   return (
