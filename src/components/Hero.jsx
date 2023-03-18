@@ -23,7 +23,7 @@ export default function Hero() {
           className="w-72 lg:w-96 lg:max-w-md rounded-lg mb-5 shadow-2xl"
         />
         <div className="flex flex-col lg:w-2/4">
-          <h1 className=" text-3xl lg:text-5xl flex flex-col text-center lg:text-left font-bold leading-normal mb-6">
+          <h1 className=" text-3xl lg:text-5xl flex flex-col text-center lg:text-left font-bold gap-3 mb-6">
             Explore brand new
             <span className="text-teal-600">{randomObject.description}</span>
           </h1>
