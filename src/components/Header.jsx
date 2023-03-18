@@ -35,7 +35,7 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             {!user ? (
-              <li className=" rounded-sm btn hover:text-white hover:bg-teal-800 active:scale-95 bg-teal-600 p-1.5 text-white">
+              <li className=" rounded-sm btn hover:text-white hover:bg-teal-800 border-none bg-teal-600 text-white">
                 <Link to="/auth/signin">Sign in</Link>
               </li>
             ) : (

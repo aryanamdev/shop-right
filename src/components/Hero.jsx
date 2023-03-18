@@ -16,18 +16,20 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero min-h-[90vh] bg-base-200 mb-10 ">
-      <div className="hero-content lg:gap-32 p-8 flex-col lg:flex-row-reverse">
+    <div className="hero min-h-[80vh] bg-base-200 mb-10 ">
+      <div className="hero-content p-8 flex-col lg:gap-28 lg:flex-row-reverse">
         <img
           src={randomObject.img}
-          className="max-w-sm lg:max-w-md rounded-lg shadow-2xl"
+          className="w-72 lg:w-96 lg:max-w-md rounded-lg mb-5 shadow-2xl"
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:w-2/4">
           <h1 className=" text-3xl lg:text-5xl flex flex-col text-center lg:text-left font-bold leading-normal mb-6">
             Explore brand new
             <span className="text-teal-600">{randomObject.description}</span>
           </h1>
-          <p className="text-ellipsis mb-6 hidden lg:block">{randomObject.specs}</p>
+          <p className="text-ellipsis mb-6 hidden lg:block">
+            {randomObject.specs}
+          </p>
           <div className="flex justify-center lg:justify-start">
             <button
               onClick={() => {

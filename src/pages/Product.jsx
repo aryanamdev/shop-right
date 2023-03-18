@@ -56,8 +56,8 @@ const Product = () => {
 
   return (
     <div className="">
-      <div className="flex flex-col lg:flex-row justify-center px-8 gap-20 m-12">
-        <div className="product other image-holder gap-8 flex flex-col lg:flex-row h-96">
+      <div className="flex flex-col lg:flex-row justify-center px-8 gap-10 mb-12">
+        <div className="product other image-holder gap-8 flex flex-col lg:flex-row">
           <img
             loading="lazy"
             className="object-cover w-full h-full"
@@ -83,7 +83,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className="content mt-40 lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start ">
+        <div className="content lg:mt-0 lg:w-1/2 text-center lg:text-left w-full flex flex-col justify-center lg:justify-start ">
           <h2 className="text-2xl font-semibold pb-4">{newItem.description}</h2>
           <div className="price flex gap-3 items-center justify-center mb-5 lg:justify-start">
             <p className="text-2xl font-semibold font-mono">
@@ -124,14 +124,29 @@ const Product = () => {
           {!existingItem ? (
             <button
               onClick={handleAddToCart}
-              className="active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-teal-600 border-[1.8px] border-teal-600 hover:border-teal-800 hover:text-teal-800 w-fit font-semibold"
+              className="
+                  btn
+                  active:scale-95
+                  p-2 
+                  mx-auto
+                  lg:mx-0
+                  bg-white 
+                  rounded-sm 
+                  text-teal-600 
+                  border-[1.8px]
+                border-teal-600 
+                hover:bg-white       
+                hover:border-teal-800 
+                hover:text-teal-800 
+                w-fit 
+                font-semibold"
             >
               Add To Cart 🛒
             </button>
           ) : (
             <button
               onClick={() => handleRemoveFromCart(newItem.id)}
-              className="active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-red-600 border-[1.8px] border-red-600 hover:border-red-800 hover:text-red-800 w-fit font-semibold"
+              className="btn hover:bg-white active:scale-95 p-2 mx-auto lg:mx-0 bg-white rounded sm text-red-600 border-[1.8px] border-red-600 hover:border-red-800 hover:text-red-800 w-fit font-semibold"
             >
               Remove from cart 🛒
             </button>
