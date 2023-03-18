@@ -49,7 +49,7 @@ export default function ProductCard({ filteredItems }) {
               Sorry <HiOutlineEmojiSad />
             </h2>
             <h2 className="text-center flex items-center text-xl ">
-              no items with related to{" "}
+              no items related to
               <span className="text-teal-700 font-bold">"{search}"</span>
             </h2>
           </div>
