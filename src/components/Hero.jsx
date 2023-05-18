@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Hero() {
   const navigate = useNavigate();
   const [randomObject, setRandomObject] = useState(
-    items[Math.floor(Math.random() * items.length -1)]
+    items[Math.floor(Math.random() * items.length - 1)]
   );
 
   useEffect(() => {
